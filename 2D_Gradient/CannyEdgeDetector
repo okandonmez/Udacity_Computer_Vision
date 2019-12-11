@@ -1,0 +1,20 @@
+pkg load image
+
+frizzy = imread('frizzy.png');
+froomer = imread('froomer.png');
+imshow(frizzy);
+imshow(froomer);
+
+% Lets find some edges
+
+frizzy_gray = rgb2gray(frizzy);
+froomer_gray = rgb2gray(froomer);
+
+frizzy_edges = edges(frizzy_gray, 'canny'); % Default one is sobel
+froomer_edges = edges(froomer_gray, 'canny);
+
+%Edge images are binary images so they can be applied by and operations
+
+imshow(frizzy_edges & froomer_edges)
+
+% its going to be show the code 007
